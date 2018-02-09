@@ -34,7 +34,8 @@
           :step="n"
           v-for="n in steps"
           :key="n"
-        >
+          >
+	  <list></list>
           <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
           <v-btn color="primary" @click="nextStep(n)">Continue</v-btn>
           <v-btn flat>Cancel</v-btn>
@@ -45,7 +46,10 @@
 </template>
 
 <script>
-  export default {
+import List from "./lists"
+
+export default {
+    components: {List},
     data () {
       return {
         e1: 1,
