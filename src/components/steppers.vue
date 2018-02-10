@@ -3,6 +3,7 @@
     <v-card class="mb-3">
       <v-card-text>
         <div>{{ typeof steps }}</div>
+	<bottom></bottom>
         <v-text-field
           label="# of steps"
           :value="steps"
@@ -19,7 +20,6 @@
       <v-stepper-header>
         <template v-for="n in steps">
           <v-stepper-step
-            :key="n"
             :step="n"
             :complete="e1 > n"
             editable
@@ -35,6 +35,8 @@
           v-for="n in steps"
           :key="n"
           >
+	  <pdf></pdf>
+	  <upload title="upload"></upload>
 	  <list></list>
           <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
           <v-btn color="primary" @click="nextStep(n)">Continue</v-btn>
@@ -47,11 +49,16 @@
 
 <script>
 import List from "./lists"
+import Bottom from "./bottom-button"
+import Upload from "./upload-button"
+import Pdf from './pdf'
 
 export default {
-    components: {List},
+    components: {List, Bottom, Upload, Pdf},
     data () {
-      return {
+	return {
+	      currentPage: 0,
+            pageCount: 0,
         e1: 1,
         steps: 2
       }
@@ -66,6 +73,9 @@ export default {
     },
 
     methods: {
+	prog(e){
+	    console.log("prog", e)
+	},
       onInput (val) {
         this.steps = parseInt(val)
       },

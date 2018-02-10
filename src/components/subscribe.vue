@@ -1,5 +1,8 @@
 <template>
   <v-form v-model="valid" ref="form" lazy-validation>
+    <!-- <v-list-tile-avatar> -->
+    <!--   <img :src="item.avatar"> -->
+    <!-- </v-list-tile-avatar> -->
     <v-text-field
       label="Name"
       v-model="name"

@@ -1,0 +1,78 @@
+import { Pie } from 'vue-chartjs'
+
+console.log(Pie)
+
+// Vue.component('line-chart', {
+//   extends: VueChartJs.Line,
+//   props: ['options'],
+//   mixins: [VueChartJs.mixins.reactiveProp],
+//   updated () {
+//     console.log('⚡ I am updated')
+//   },
+//   mounted () {
+//     this.renderChart(this.chartData, this.options)
+//   }
+  
+// })
+
+// var vm = new Vue({
+//   el: '.app',
+//   data: {
+//     show: true,
+//     message: {},
+//     options: {
+//       responsive: true,
+//       maintainAspectRatios: false,
+//       scales: {
+//         yAxes: [{
+//           ticks: {
+//             callback: function(value, index, values) {
+//               return `£ ${value}`;
+//             },
+//           },
+//         }],
+//       },
+//       tooltips: {
+//         enabled: true,
+//         callbacks: {
+//           label:function (tooltipItems, data) {
+//             console.log(data)
+//             return tooltipItems.yLabel + '£'
+//           }
+//         }
+//       }
+//     }
+//   },
+  
+//   mounted () {
+//     setInterval(() => {
+//       this.fillData()
+//     },  5000)
+//   },
+//   methods: {
+//     fillData () {
+//       this.message = {
+//         labels: ['January' + this.getRandomInt(), 
+//                  'February', 'March', 'April', 'May', 'June', 
+//                  'July', 'August', 'September', 'October', 'November', 'December'],
+//         datasets: [
+//           {
+//             label: 'Data One',
+//             backgroundColor: '#f87979',
+//             data: [this.getRandomInt(), this.getRandomInt(), 
+//                    this.getRandomInt(), this.getRandomInt(), 
+//                    this.getRandomInt(), this.getRandomInt(), 
+//                    this.getRandomInt(), this.getRandomInt(), 
+//                    this.getRandomInt(), this.getRandomInt(), 
+//                    this.getRandomInt(), this.getRandomInt()]
+//           }
+//         ]
+//       }
+//     },
+
+//     getRandomInt () {
+//       return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+//     }
+//   }
+// })
+// e

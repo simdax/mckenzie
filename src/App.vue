@@ -10,20 +10,6 @@
     app
     >
     <subscribe></subscribe>
-    <!-- <v-list> -->
-      <!--   <v-list-tile -->
-      <!--     value="true" -->
-      <!--     v-for="(item, i) in items" -->
-      <!--     :key="i" -->
-      <!--   > -->
-	<!--     <v-list-tile-action> -->
-	  <!--       <v-icon v-html="item.icon"></v-icon> -->
-	  <!--     </v-list-tile-action> -->
-	<!--     <v-list-tile-content> -->
-	  <!--       <v-list-tile-title v-text="item.title"></v-list-tile-title> -->
-	  <!--     </v-list-tile-content> -->
-	<!--   </v-list-tile> -->
-      <!-- </v-list> -->
   </v-navigation-drawer>
   <v-toolbar
     app
@@ -39,7 +25,7 @@
     <!-- <v-btn icon @click.stop="fixed = !fixed"> -->
       <!--   <v-icon>remove</v-icon> -->
       <!-- </v-btn> -->
-    <v-toolbar-title v-text="title"></v-toolbar-title>
+    <v-toolbar-title @click="$router.push('/')" :style="{cursor: 'pointer'}" v-text="title"></v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon @click.stop="rightDrawer = !rightDrawer">
       <v-icon>menu</v-icon>
@@ -49,18 +35,17 @@
     <router-view/>
   </v-content>
   <v-navigation-drawer
+    align-center
     temporary
     :right="right"
     v-model="rightDrawer"
     fixed
     app
     >
-    <project v-for="title in project_titles"
-	     :key="title"
-	     :title="title"/>
+    <img class="badge" src="static/identity.jpg">
+    <project/>
   </v-navigation-drawer>
   <v-footer :fixed="fixed" app>
-    <span>&copy; 2017</span>
   </v-footer>
 </v-app>
 </template>
@@ -68,18 +53,17 @@
 <script>
 import Subscribe from "@/components/subscribe"
 import Project from "@/components/project"
+import Under from "@/components/underlist"
 
 export default {
-    components: {Subscribe, Project},
+    components: {Subscribe, Project, Under},
     data () {
 	return {
-	    project_titles: ["Project Topaze",
-			     "Project Deep-Blue"],
 	    clipped: false,
 	    drawer: true,
 	    fixed: false,
 	    items: [{
-		icon: 'user',
+		icon: 'mdi-mouse',
 		title: 'Connection'
 	    }],
 	    miniVariant: false,
@@ -91,3 +75,33 @@ export default {
     name: 'App'
 }
 </script>
+
+<style lang="scss">
+
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans|Montserrat|Anton");
+
+body, *{
+    font-family: Helvetica;
+    //      letter-spacing: 3px; 
+    /* font-size: 15px; */
+    color: black;
+}
+.badge{
+    background: hsl(180, 20%, 30%);
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin: 30px auto;
+    display: block;
+}
+.list__tile--link[href="#/project"],
+.list__tile--link[href="#/budget"]{
+    background: hsl(100, 10%, 50%);
+    height: 30px;
+}
+.list__tile--link[href="#/project"]:hover,
+.list__tile--link[href="#/budget"]:hover{
+    background: hsl(100, 50%, 50%);
+}
+
+</style>
