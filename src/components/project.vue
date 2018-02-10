@@ -25,6 +25,12 @@
             <v-list-tile-title>Budget</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
+      <v-list-tile to="files" @click="">
+        <v-list-tile-content>
+            <v-icon>fa-arrow</v-icon>
+            <v-list-tile-title>Documents</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
     </v-list-group>
 </v-list>
 </template>

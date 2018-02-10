@@ -83,8 +83,10 @@ export default {
 body, *{
     font-family: Helvetica;
     //      letter-spacing: 3px; 
-    /* font-size: 15px; */
     color: black;
+}
+.toolbar{
+
 }
 .badge{
     background: hsl(180, 20%, 30%);
@@ -95,11 +97,13 @@ body, *{
     display: block;
 }
 .list__tile--link[href="#/project"],
+.list__tile--link[href="#/files"],
 .list__tile--link[href="#/budget"]{
     background: hsl(100, 10%, 50%);
     height: 30px;
 }
 .list__tile--link[href="#/project"]:hover,
+.list__tile--link[href="#/files"]:hover,
 .list__tile--link[href="#/budget"]:hover{
     background: hsl(100, 50%, 50%);
 }
